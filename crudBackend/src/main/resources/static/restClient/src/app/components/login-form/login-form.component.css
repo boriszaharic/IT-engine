@@ -1,0 +1,12 @@
+a{
+  text-decoration: none;
+}
+
+div input{
+  width:100%;
+  display:block;
+}
+
+.content{
+  left:0;
+}

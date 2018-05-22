@@ -1,0 +1,40 @@
+<div class="container">
+  <aside>
+        <a href="http://localhost:4200/users" id="users">Users</a>
+        <a href="http://localhost:4200/companies" id="companies">Companies</a>
+        <a href="http://localhost:4200/items" id="items">Items</a>
+  </aside>
+  <div class="content">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>email</th>
+            <th>username</th>
+            <th>password</th>
+            <th>company</th>
+            <th>role</th>
+            <th>Operations</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.userName}}</td>
+                <td>{{user.password}}</td>
+                <td>{{user.company}}</td>
+                <td>{{user.role}}</td>
+                <td>
+                  <button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+                  <button class="btn btn-primary" (click)="updateUser(user)">Edit</button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-success" (click)="newUser()">New User</button>
+  </div>
+</div>

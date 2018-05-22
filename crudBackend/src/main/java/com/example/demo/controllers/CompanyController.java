@@ -1,0 +1,51 @@
+package com.example.demo.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import com.example.demo.entities.Company;
+import com.example.demo.repositories.CompanyRepository;
+
+@RestController
+@RequestMapping("/api")
+@CrossOrigin(origins="http://localhost:4200",allowedHeaders="*")
+public class CompanyController {
+	@Autowired
+	private CompanyRepository companyRepository;
+	
+	@GetMapping("/companies")
+	public List<Company> getCompanies(){
+		return companyRepository.findAll();
+	}
+	
+	@GetMapping("/company/{id}")
+	public Company getCompany(@PathVariable Long id){
+		return companyRepository.findOne(id);
+	}
+	
+	@DeleteMapping("/company/{id}")
+	public boolean deleteCompany(@PathVariable Long id){
+		companyRepository.delete(id);
+		return true;
+	}
+	
+	@PostMapping("/company")
+	public Company createCompany(@RequestBody Company company){
+		return companyRepository.save(company);
+	}
+	
+	@PutMapping("/company")
+	public Company updateCompany(@RequestBody Company company){
+		return companyRepository.save(company);
+	}
+	
+}

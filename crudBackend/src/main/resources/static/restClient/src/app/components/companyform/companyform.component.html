@@ -1,0 +1,32 @@
+<div class="container">
+  <aside>
+        <a href="http://localhost:4200/users" id="users">Users</a>
+        <a href="http://localhost:4200/companies" id="companies">Companies</a>
+        <a href="http://localhost:4200/items" id="items">Items</a>
+  </aside>
+  <div class="content">
+    <form (ngSubmit)="processForm()">
+        <!--<div class="form group">
+            <label for="id">ID</label>
+            <input type="text" name="id" class="form-control" [(ngModel)]="company.id">
+        </div>-->
+        <div class="form group">
+            <label for="companyName">Name</label>
+            <input type="text" name="companyName" class="form-control" [(ngModel)]="company.companyName">
+        </div>
+        <div class="form group">
+            <label for="companyAddress">Address</label>
+            <input type="text" name="companyAddress" class="form-control" [(ngModel)]="company.companyAddress">
+        </div>
+        <div class="form group">
+            <label for="licenceTill">Valid licence till</label>
+            <input type="text" name="licenceTill" class="form-control" [(ngModel)]="company.licenceTill">
+        </div>
+        <div class="form group">
+            <label for="contactPerson">Contact person</label>
+            <input type="text" name="contactPerson" class="form-control" [(ngModel)]="company.contactPerson">
+        </div>
+        <input type="submit" value="save" class="btn btn-success">
+    </form>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="container">
+  <aside>
+        <a href="http://localhost:4200/users" id="users">Users</a>
+        <a href="http://localhost:4200/companies" id="companies">Companies</a>
+        <a href="http://localhost:4200/items" id="items">Items</a>
+  </aside>
+  <div class="content">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Order number</th>
+            <th>Category</th>
+            <th>Value</th>
+            <th>Description</th>
+            <th>Barcode</th>
+            <th>Operations</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of items">
+                <td>{{item.id}}</td>
+                <td>{{item.itemName}}</td>
+                <td>{{item.orderNumber}}</td>
+                <td>{{item.category}}</td>
+                <td>{{item.value}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.barcode}}</td>
+                <td>
+                  <button class="btn btn-danger" (click)="deleteItem(item)">Delete</button>
+                  <button class="btn btn-primary" (click)="updateItem(item)">Edit</button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-primary" (click)="newItem()">New Item</button>
+  </div>
+</div>

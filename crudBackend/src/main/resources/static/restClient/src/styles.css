@@ -1,0 +1,56 @@
+nav{
+  float:left;
+  background-color: #33373A;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding: 10px 0 0 36px;
+  color: #FFF;
+}
+
+nav a{
+  float: right;
+  padding-right: 40px;
+}
+
+nav a:hover, aside a:hover{
+  text-decoration: none;
+}
+
+.my-form{
+  min-width:30%;
+  max-width: 30%;
+  margin: 0 auto;
+}
+
+aside{
+  float:left;
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 50px;
+  left: 0;
+  background-color: #33373A;
+  overflow-x: hidden;
+  padding-top: 10px;
+}
+
+aside a{
+  padding: 6px 6px 6px 36px;
+  font-size: 20px;
+  color: #FFF;
+  text-decoration: none;
+  display: block;
+}
+
+.content{
+  width: 100%;
+  position: relative;
+  top: 80px;
+  left: 100px;
+}
