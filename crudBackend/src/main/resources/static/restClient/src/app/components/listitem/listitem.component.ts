@@ -20,13 +20,23 @@ export class ListitemComponent implements OnInit {
         console.log(error);
       })
   }
-  deleteItem(item){
-    this._itemService.deleteItem(item.id).subscribe((data)=>{
-        this.items.splice(this.items.indexOf(item),1);
-    },(error)=>{
-      console.log(error);
-    });
-  }
+  // deleteItem(item){
+  //   this._itemService.deleteItem(item.id).subscribe((data)=>{
+  //       this.items.splice(this.items.indexOf(item),1);
+  //   },(error)=>{
+  //     console.log(error);
+  //   });
+  // }
+  confirmDelete(item){
+     var x = confirm("Are you sure you want to delete?");
+     if (x){
+       this._itemService.deleteItem(item.id).subscribe((data)=>{
+          this.items.splice(this.items.indexOf(item),1);
+          },(error)=>{
+          console.log(error);
+        });
+     }
+   }
 
    updateItem(item){
      this._itemService.setter(item);

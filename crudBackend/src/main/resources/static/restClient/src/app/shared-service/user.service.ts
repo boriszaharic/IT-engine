@@ -59,18 +59,18 @@ export class UserService {
 
 
 
-  login(){
-
-  }
-
-  getUsername(){
-    return "USERNAME";
-  }
-
-  getPassword(){
-    return this._http.get(this.baseUrl+'/user/'+password,this.options).map((response:Response)=>response.json())
-      .catch(this.errorHandler);
-  }
+  // login(){
+  //
+  // }
+  //
+  // getUsername(){
+  //   return "USERNAME";
+  // }
+  //
+  // getPassword(){
+  //   return this._http.get(this.baseUrl+'/user/'+password,this.options).map((response:Response)=>response.json())
+  //     .catch(this.errorHandler);
+  // }
 
 
 }

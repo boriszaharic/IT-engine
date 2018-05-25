@@ -7,6 +7,7 @@
   <div class="content">
     <table class="table table-bordered table-striped">
         <thead>
+          <tr>
             <th>Id</th>
             <th>Name</th>
             <th>Order number</th>
@@ -15,6 +16,7 @@
             <th>Description</th>
             <th>Barcode</th>
             <th>Operations</th>
+          </tr>
         </thead>
         <tbody>
             <tr *ngFor="let item of items">
@@ -26,7 +28,7 @@
                 <td>{{item.description}}</td>
                 <td>{{item.barcode}}</td>
                 <td>
-                  <button class="btn btn-danger" (click)="deleteItem(item)">Delete</button>
+                  <button class="btn btn-danger" (click)="confirmDelete(item)">Delete</button>
                   <button class="btn btn-primary" (click)="updateItem(item)">Edit</button>
                 </td>
 

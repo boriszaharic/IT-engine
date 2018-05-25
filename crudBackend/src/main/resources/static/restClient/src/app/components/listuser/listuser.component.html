@@ -6,7 +6,7 @@
   </aside>
   <div class="content">
     <table class="table table-bordered table-striped">
-        <thead>
+        <thead><tr>
             <th>Id</th>
             <th>First Name</th>
             <th>Last Name</th>
@@ -16,6 +16,7 @@
             <th>company</th>
             <th>role</th>
             <th>Operations</th>
+          </tr>
         </thead>
         <tbody>
             <tr *ngFor="let user of users">
@@ -28,10 +29,9 @@
                 <td>{{user.company}}</td>
                 <td>{{user.role}}</td>
                 <td>
-                  <button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+                  <button class="btn btn-danger" (click)="confirmDelete(user)">Delete</button>
                   <button class="btn btn-primary" (click)="updateUser(user)">Edit</button>
                 </td>
-
             </tr>
         </tbody>
     </table>

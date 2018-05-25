@@ -20,13 +20,24 @@ export class ListcompanyComponent implements OnInit {
       console.log(error);
     })
   }
-  deleteCompany(company){
-    this._companyService.deleteCompany(company.id).subscribe((data)=>{
-        this.companies.splice(this.companies.indexOf(company),1);
-    },(error)=>{
-      console.log(error);
-    });
-  }
+  // deleteCompany(company){
+  //   this._companyService.deleteCompany(company.id).subscribe((data)=>{
+  //       this.companies.splice(this.companies.indexOf(company),1);
+  //   },(error)=>{
+  //     console.log(error);
+  //   });
+  // }
+
+  confirmDelete(company){
+     var x = confirm("Are you sure you want to delete?");
+     if (x){
+       this._companyService.deleteCompany(company.id).subscribe((data)=>{
+           this.companies.splice(this.companies.indexOf(company),1);
+       },(error)=>{
+         console.log(error);
+       });
+     }
+   }
 
    updateCompany(company){
      this._companyService.setter(company);

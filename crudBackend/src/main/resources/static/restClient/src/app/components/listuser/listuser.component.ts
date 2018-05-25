@@ -18,15 +18,25 @@ export class ListuserComponent implements OnInit {
         this.users=users;
       },(error)=>{
         console.log(error);
-      })
+      });
   }
-  deleteUser(user){
-    this._userService.deleteUser(user.id).subscribe((data)=>{
-        this.users.splice(this.users.indexOf(user),1);
-    },(error)=>{
-      console.log(error);
-    });
-  }
+  // deleteUser(user){
+  //   this._userService.deleteUser(user.id).subscribe((data)=>{
+  //       this.users.splice(this.users.indexOf(user),1);
+  //   },(error)=>{
+  //     console.log(error);
+  //   });
+  // }
+  confirmDelete(user){
+     var x = confirm("Are you sure you want to delete?");
+     if (x){
+       this._userService.deleteUser(user.id).subscribe((data)=>{
+           this.users.splice(this.users.indexOf(user),1);
+       },(error)=>{
+         console.log(error);
+       });
+     }
+   }
 
    updateUser(user){
      this._userService.setter(user);

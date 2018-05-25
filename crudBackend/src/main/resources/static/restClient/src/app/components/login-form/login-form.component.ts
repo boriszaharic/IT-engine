@@ -21,14 +21,12 @@ export class LoginFormComponent implements OnInit {
   }
 
   loginForm(){
-    if(this.userName=="boris" && this.password=="zaharic" ){
+    if(this.userName=="boris" && this.password=="zaharic"){
         this._router.navigate(['/users']);
     }else{
          this._router.navigate(['/']);
-    },(error)=>{
-         console.log(error);
-       });
     }
+  }
 
     // $(function() {
     //     $('#login-tab').click(function(e) {
