@@ -34,6 +34,14 @@
             <label for="barcode">Barcode</label>
             <input type="text" name="barcode" class="form-control" [(ngModel)]="item.barcode">
         </div>
+
+        <div class="form group">
+            <label for="company">Company</label>
+            <select name="company" class="form-control">
+              <option *ngFor="let company of companies">{{company.companyName}}</option>
+            </select>
+        </div>
+
         <input type="submit" value="save" class="btn btn-success">
     </form>
   </div>

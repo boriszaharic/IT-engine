@@ -3,6 +3,9 @@ import{ Item }  from '../../item';
 import{ Router }  from '@angular/router';
 import{ ItemService }  from '../../shared-service/item.service';
 
+import{ Company }  from '../../company';
+import{ CompanyService }  from '../../shared-service/company.service';
+
 @Component({
   selector: 'app-item-form',
   templateUrl: './item-form.component.html',
@@ -10,11 +13,20 @@ import{ ItemService }  from '../../shared-service/item.service';
 })
 export class ItemFormComponent implements OnInit {
   private item:Item;
+  private companies:Company[];
 
-  constructor(private _itemService:ItemService,private _rotuer:Router) { }
+  constructor(private _itemService:ItemService,private _rotuer:Router,private _companyService:CompanyService) { }
 
   ngOnInit() {
     this.item=this._itemService.getter();
+
+    this._companyService.getCompanies().subscribe((companies)=>{
+      console.log(companies);
+      this.companies=companies;
+    },(error)=>{
+      console.log(error);
+    });
+
   }
 
   processForm(){

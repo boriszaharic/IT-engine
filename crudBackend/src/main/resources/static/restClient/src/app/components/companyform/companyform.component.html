@@ -26,6 +26,18 @@
             <label for="contactPerson">Contact person</label>
             <input type="text" name="contactPerson" class="form-control" [(ngModel)]="company.contactPerson">
         </div>
+
+        <!-- ITEMS -->
+        <div class="form group">
+            <label for="items">Items</label>
+            <br>
+            <select class="form-control" id="sbOne" multiple="multiple" >
+                <option *ngFor="let item of items" value="1">{{item.itemName}}</option>
+            </select>
+            <input type="button" id="right" (click)="transferItem()" value=">" />
+            <select class="form-control" id="sbTwo" multiple="multiple"></select>
+        </div>
+
         <input type="submit" value="save" class="btn btn-success">
     </form>
   </div>

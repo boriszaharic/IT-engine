@@ -1,1 +1,7 @@
-
+.img-circle[alt="Cinque"]{
+  float:right;
+  margin-right:10px;
+}
+.img-responsive[alt="Logo"]{
+  float:left;
+}

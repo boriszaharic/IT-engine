@@ -1,7 +1,7 @@
 nav{
   float:left;
   background-color: #33373A;
-  height: 50px;
+  height: 56px;
   width: 100%;
   position: fixed;
   z-index: 1;
@@ -14,7 +14,8 @@ nav{
 
 nav a{
   float: right;
-  padding-right: 40px;
+  padding-top: 8px;
+  padding-right: 20px;
 }
 
 nav a:hover, aside a:hover{
