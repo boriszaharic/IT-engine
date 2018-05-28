@@ -1,0 +1,12 @@
+1527334104727	Rename package 'impl'
+1527334123593	Delete element
+1527334356080	Rename compilation unit 'JpaInventoryItemService.java'
+1527350981202	Rename package 'controller'
+1527351022957	Rename package 'dto'
+1527352255946	Rename package 'support'
+1527352924662	Delete element
+1527354459056	Rename compilation unit 'ApiInventoryItemController.java'
+1527355047993	Delete element
+1527355164011	Rename type 'InventoryItemDTOToInventoryItem'
+1527355200063	Rename type 'InventoryItemToInventoryItemDTO'
+1527357382961	Rename type 'InventoryItemDTO'

@@ -1,0 +1,95 @@
+package com.example.demo.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table
+public class Item {
+	@Id
+	@GeneratedValue
+	@Column
+	private long id;
+	@Column
+	private String itemName;
+	@Column
+	private String orderNumber;
+	//private String category;
+	@Column
+	private String value;
+	@Column
+	private String description;
+	@Column
+	private int barcode;
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Category category;
+	
+	
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", itemName=" + itemName + ", orderNumber=" + orderNumber + ", category=" + category
+				+ ", value=" + value + ", description=" + description + ", barcode=" + barcode + "]";
+	}
+	public Item() {
+	}
+	
+	public Item(String itemName, String orderNumber, Category category, String value, String description, int barcode) {
+		this.itemName = itemName;
+		this.orderNumber = orderNumber;
+		//this.category = category;
+		this.value = value;
+		this.description = description;
+		this.barcode = barcode;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getItemName() {
+		return itemName;
+	}
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+	public String getOrderNumber() {
+		return orderNumber;
+	}
+	public void setOrderNumber(String orderNumber) {
+		this.orderNumber = orderNumber;
+	}
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+		if (category != null && !category.getItems().contains(this)) {
+			category.getItems().add(this);
+		}
+	}
+	public String getValue() {
+		return value;
+	}
+	public void setValue(String value) {
+		this.value = value;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public int getBarcode() {
+		return barcode;
+	}
+	public void setBarcode(int barcode) {
+		this.barcode = barcode;
+	}
+}

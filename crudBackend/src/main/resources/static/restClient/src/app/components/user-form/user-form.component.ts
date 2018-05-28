@@ -10,6 +10,10 @@ import{UserService}  from '../../shared-service/user.service';
 })
 export class UserFormComponent implements OnInit {
   private user:User;
+  private namePattern="[A-Z][a-z]{1,15}";
+  private passwordPattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}";
+  private emailPattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$";
+  
   constructor(private _userService:UserService,private _rotuer:Router) { }
 
   ngOnInit() {

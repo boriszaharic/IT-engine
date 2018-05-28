@@ -12,7 +12,7 @@
         </div> -->
         <div class="form group">
             <label for="itemName">Name</label>
-            <input type="text" name="itemName" class="form-control" [(ngModel)]="item.itemName">
+            <input type="text" name="itemName" class="form-control" [(ngModel)]="item.itemName" required>
         </div>
         <div class="form group">
             <label for="orderNumber">Order number</label>
@@ -32,12 +32,13 @@
         </div>
         <div class="form group">
             <label for="barcode">Barcode</label>
-            <input type="text" name="barcode" class="form-control" [(ngModel)]="item.barcode">
+            <input type="text" name="barcode" class="form-control" [(ngModel)]="item.barcode"#barcode="ngModel" [pattern]="barcodePattern">
+            <div *ngIf="barcode.errors?.pattern">Barcode not valid. Must contain 13 digits.</div>
         </div>
 
         <div class="form group">
             <label for="company">Company</label>
-            <select name="company" class="form-control">
+            <select style="height:35px;" name="company" class="form-control">
               <option *ngFor="let company of companies">{{company.companyName}}</option>
             </select>
         </div>

@@ -5,8 +5,20 @@
 <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
 <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
 <fullyQualifiedTypeName name="com.example.demo.repositories.CompanyRepository"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.example.demo.entities.Company"/>
 <fullyQualifiedTypeName name="com.example.demo.repositories.ItemRepository"/>
 <fullyQualifiedTypeName name="com.example.demo.entities.Item"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="java.util.Optional"/>
+<fullyQualifiedTypeName name="com.example.demo.service.CompanyService"/>
+<fullyQualifiedTypeName name="com.example.demo.service.CategoryService"/>
+<fullyQualifiedTypeName name="com.example.demo.service.ItemService"/>
+<fullyQualifiedTypeName name="com.example.demo.service.UserService"/>
+<fullyQualifiedTypeName name="com.example.demo.repositories.RoleRepository"/>
+<fullyQualifiedTypeName name="com.example.demo.entities.Role"/>
+<fullyQualifiedTypeName name="javax.persistence.ManyToMany"/>
+<fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
+<fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+<fullyQualifiedTypeName name="java.text.Format"/>
 </qualifiedTypeNameHistroy>

@@ -12,7 +12,8 @@
         </div>-->
         <div class="form group">
             <label for="companyName">Name</label>
-            <input type="text" name="companyName" class="form-control" [(ngModel)]="company.companyName">
+            <input type="text" name="companyName" class="form-control" [(ngModel)]="company.companyName" #cname="ngModel" [pattern]="namePattern">
+            <div *ngIf="cname.errors?.pattern">Company name not valid.</div>
         </div>
         <div class="form group">
             <label for="companyAddress">Address</label>
@@ -20,7 +21,8 @@
         </div>
         <div class="form group">
             <label for="licenceTill">Valid licence till</label>
-            <input type="text" name="licenceTill" class="form-control" [(ngModel)]="company.licenceTill">
+            <input type="text" name="licenceTill" class="form-control" [(ngModel)]="company.licenceTill" #cdate="ngModel" [pattern]="datePattern">
+            <div *ngIf="cdate.errors?.pattern">Date format must be:"dd/mm/yyyy"</div>
         </div>
         <div class="form group">
             <label for="contactPerson">Contact person</label>

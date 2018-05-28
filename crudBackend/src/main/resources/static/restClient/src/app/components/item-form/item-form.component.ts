@@ -14,6 +14,7 @@ import{ CompanyService }  from '../../shared-service/company.service';
 export class ItemFormComponent implements OnInit {
   private item:Item;
   private companies:Company[];
+  private barcodePattern="[0-9]{13,13}";
 
   constructor(private _itemService:ItemService,private _rotuer:Router,private _companyService:CompanyService) { }
 

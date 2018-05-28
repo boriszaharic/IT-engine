@@ -7,14 +7,31 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.demo.entities.Company;
 import com.example.demo.entities.Item;
+import com.example.demo.entities.Role;
 import com.example.demo.entities.User;
 import com.example.demo.repositories.UserRepository;
+import com.example.demo.service.CompanyService;
+import com.example.demo.service.ItemService;
+import com.example.demo.service.UserService;
 import com.example.demo.repositories.CompanyRepository;
 import com.example.demo.repositories.ItemRepository;
+import com.example.demo.repositories.RoleRepository;
 
 @SpringBootApplication
 public class CrudBackendApplication implements CommandLineRunner{
+	
+	@Autowired
+	private CompanyService companyService;
 
+	@Autowired
+	private ItemService itemService;
+
+	@Autowired
+	private UserService userService;
+
+	@Autowired
+	private RoleRepository roleRepository;
+	
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -34,17 +51,17 @@ public class CrudBackendApplication implements CommandLineRunner{
 		//TEST User
 		userRepository.save(new User("Boris","Zaharic","boris.zaharic@gmail.com","username","password","IT engine","Developer"));
 		userRepository.save(new User("Milos","Pavlovic","milos.pavlovic@gmail.com","milos","password2","IT engine","Developer"));
-		userRepository.save(new User("Milica","Pavlovic","milica.pavlovic@gmail.com","milica","password3","IT engine","QA"));
+		userRepository.save(new User("Milica","Pavlovic","milica.pavlovic@gmail.com","milica","password3","IT engine","QA"));	
 		
 		//TEST Company
-		companyRepository.save(new Company("one","one","one","one"));
-		companyRepository.save(new Company("two","one","two","one"));
-		companyRepository.save(new Company("three","one","two","one"));
+		companyRepository.save(new Company("IT engine","Bulevar","21/11/2017","Milos"));
+		companyRepository.save(new Company("DMD","Cirpanova","22/11/2017","Jelena"));
+		companyRepository.save(new Company("SMD","Mileticeva","23/11/2017","Milena"));
 		
 		//TEST 
-		itemRepository.save(new Item("one","one","one","one","one",121324));
-		itemRepository.save(new Item("two","one","two","one","one",121324));
-		itemRepository.save(new Item("three","one","two","one","one",121324));
+		itemRepository.save(new Item("Item 1",2222,"one","234","Description 1",341230845));
+		itemRepository.save(new Item("Item 2",3333,"two","138","Description 2",341230685));
+		itemRepository.save(new Item("Item 3",4444,"two","625","Description 3",341230324));
 		
 	}
 }

@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,13 +30,13 @@ public class ItemController {
 	}
 	
 	@GetMapping("/item/{id}")
-	public Item getItem(@PathVariable Long id){
-		return itemRepository.findOne(id);
+	public Optional<Item> getItem(@PathVariable Long id){
+		return itemRepository.findById(id);
 	}
 	
 	@DeleteMapping("/item/{id}")
 	public boolean deleteItem(@PathVariable Long id){
-		itemRepository.delete(id);
+		itemRepository.deleteById(id);
 		return true;
 	}
 	

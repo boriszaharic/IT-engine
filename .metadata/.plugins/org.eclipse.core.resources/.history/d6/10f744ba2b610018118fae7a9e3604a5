@@ -1,0 +1,125 @@
+package com.example.demo;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.example.demo.entities.Category;
+import com.example.demo.entities.Company;
+import com.example.demo.entities.Item;
+import com.example.demo.entities.Role;
+import com.example.demo.entities.User;
+import com.example.demo.repositories.RoleRepository;
+import com.example.demo.service.CategoryService;
+import com.example.demo.service.CompanyService;
+import com.example.demo.service.ItemService;
+import com.example.demo.service.UserService;
+
+@Component
+public class TestData {
+
+	@Autowired
+	private CompanyService companyService;
+
+	@Autowired
+	private CategoryService categoryService;
+
+	@Autowired
+	private ItemService itemService;
+
+	@Autowired
+	private UserService userService;
+
+	@Autowired
+	private RoleRepository roleRepository;
+
+	@PostConstruct
+	public void init() {
+
+		Date date = null;
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		for (int i = 1; i < 4; i++) {
+			Company company = new Company();
+			company.setCompanyName("Company " + i);
+			company.setCompanyAddress("Address " + i);
+			company.setContactPerson("Contact preson " + i);
+			try {
+				date = sdf.parse("10/10/202" + i);
+			} catch (ParseException e) {
+				System.out.println("Exception occured during date parsing");
+				e.printStackTrace();
+			}
+			company.setLicenceTill(""+date);
+			companyService.save(company);
+
+			for (int j = 1; j < 4; j++) {
+				//Category category = new Category();
+				//category.setName("Category " + j + " of company " + i);
+				//category.setCompany(company);
+				//company.addCategory(category);
+				//categoryService.save(category);
+
+				for (int k = 1; k < 6; k++) {
+					Item item = new Item();
+					item.setItemName("Item " + k + " of category " + j + " of company " + i);
+					item.setDescription("Item " + k + " described here.");
+					item.setOrderNumber((int) (i * 100 + j + 10 + k));
+					//item.setValue((float) (150 + i + j + k));
+					item.setValue(""+ (150 + i + j + k));
+					item.setBarcode((int) (i * 100 + j + 10 + k));
+					//item.setCategory(category);
+					//category.addItem(item);
+					itemService.save(item);
+				}
+			}
+		}
+
+		/* Super admin ------------------------- */
+		User user1 = new User();
+		user1.setFirstName("Super administrator");
+		user1.setLastName("SuperLast");
+		user1.setEmail("super@test.com");
+		user1.setPassword("super");
+
+		Role role1 = new Role();
+		role1.setRole("SUPER_ADMIN");
+
+		user1.addRole(role1);
+		role1.setUser(user1);
+
+		userService.save(user1);
+		roleRepository.save(role1);
+		/* ------------------------------------- */
+
+		/* Company admin ------------------------- */
+		User user2 = new User();
+		user2.setFirstName("Company administrator");
+		user2.setLastName("CompanyLast");
+		// To check password recovery feature, enter your valid email to the password,
+		// in this case "company"
+		user2.setEmail("youremail@something.com");
+		user2.setPassword("company");
+
+		Role role2 = new Role();
+		role2.setRole("COMPANY_ADMIN");
+
+		user2.addRole(role2);
+		role2.setUser(user2);
+
+		Company company = companyService.findOne(1L);
+		
+		user2.setCompany(company);
+		company.addUser(user2);
+
+		userService.save(user2);
+		roleRepository.save(role2);
+		companyService.save(company);
+		/* ------------------------------------- */
+	}
+
+}

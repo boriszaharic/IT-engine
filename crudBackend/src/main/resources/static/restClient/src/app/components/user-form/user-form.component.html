@@ -12,23 +12,27 @@
         </div> -->
         <div class="form group">
             <label for="firstName">First Name</label>
-            <input type="text" name="firstName" class="form-control" [(ngModel)]="user.firstName">
+            <input type="text" name="firstName" class="form-control" [(ngModel)]="user.firstName" #fname="ngModel" [pattern]="namePattern">
+            <div *ngIf="fname.errors?.pattern">First name not valid.</div>
         </div>
         <div class="form group">
             <label for="lastName">Last Name</label>
-            <input type="text" name="lastName" class="form-control" [(ngModel)]="user.lastName">
+            <input type="text" name="lastName" class="form-control" [(ngModel)]="user.lastName" #lname="ngModel" [pattern]="namePattern">
+            <div *ngIf="lname.errors?.pattern">Last name not valid.</div>
         </div>
         <div class="form group">
             <label for="email">Email</label>
-            <input type="text" name="email" class="form-control" [(ngModel)]="user.email">
+            <input type="email" name="email" class="form-control" [(ngModel)]="user.email" #email="ngModel" [pattern]="emailPattern">
+            <div *ngIf="email.errors?.pattern">Email format not valid.</div>
         </div>
         <div class="form group">
             <label for="userName">username</label>
-            <input type="text" name="userName" class="form-control" [(ngModel)]="user.userName">
+            <input type="text" name="userName" class="form-control" [(ngModel)]="user.userName" #uname="ngModel" [pattern]="unamePattern" required>
         </div>
         <div class="form group">
             <label for="password">password</label>
-            <input type="password" name="password" class="form-control" [(ngModel)]="user.password">
+            <input type="password" name="password" class="form-control" [(ngModel)]="user.password" #pass="ngModel" [pattern]="passwordPattern" required>
+            <div *ngIf="pass.errors?.pattern">Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters.</div>
         </div>
         <div class="form group">
             <label for="company">company</label>
@@ -42,6 +46,7 @@
             <label for="userImage">User image</label>
             <input type="file" name="userImage" class="form-control" [(ngModel)]="user.userImage">
         </div>
+
         <input type="submit" value="save" class="btn btn-success">
     </form>
   </div>
